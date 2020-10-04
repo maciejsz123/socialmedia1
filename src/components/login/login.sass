@@ -1,0 +1,60 @@
+.center-div
+  height: 100vh
+  background-color: #282c34
+  display: flex
+  align-items: center
+  justify-content: center
+
+.login-container
+  background-color: #f9f9f9
+  height: 100%
+  width: 100%
+  font-size: 18px
+  display: grid
+  grid-template-rows: 1fr 2fr
+
+.login-header
+  display: grid
+  grid-template-columns: 1fr 1fr
+  justify-self: center
+  align-items: center
+  & > h2
+    cursor: pointer
+    &:hover
+      color: black
+
+.color-grey
+  color: grey
+
+.color-black
+  color: black
+
+.login-form
+  form
+    display: flex
+    flex-flow: column
+    align-items: center
+    input
+      margin: 5px
+      border-radius: 5px
+      border-color: transparent
+      background-color: #e6e6e6
+      min-width: 300px
+      min-height: 40px
+    button
+      font-size: inherit
+
+.form-input-error
+  color: violet
+  font-size: 15px
+
+@media only screen and (min-width: 800px)
+  .login-container
+    width: 80%
+    height: 80%
+    font-size: 21px
+
+@media only screen and (min-width: 1200px)
+  .login-container
+    width: 60%
+    font-size: 24px

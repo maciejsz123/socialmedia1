@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Login from './components/login/login';
+import MainPage from './components/mainPage/mainPage';
+import Posts from './components/posts/posts';
+import Chat from './components/chat/chat';
+import { connect } from 'react-redux';
+import './App.sass';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-function App() {
+function App(props) {
+  if(!Object.keys(props.actualUser).length) {
+    return <Login />
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <MainPage />
+      </div>
+        <Switch>
+          <Route exact path='/'>
+          </Route>
+          <Route path='/posts'>
+            <Posts />
+          </Route>
+          <Route path='/chat'>
+            <Chat />
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  actualUser: state.users.actualUser
+})
+
+export default connect(mapStateToProps)(App);

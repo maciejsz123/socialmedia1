@@ -1,0 +1,46 @@
+$avatar-size: 150px
+$icon-size: 30px
+
+#avatar-change
+  display: none
+
+.actual-user
+  margin: 5px 0
+  background-color: white
+  border-radius: 10px
+
+.logout
+  width: $icon-size
+  height: $icon-size
+  cursor: pointer
+
+.avatar-img
+  border-radius: 50%
+  border: 1px solid #f0f2f5
+  margin: 5px
+  width: $avatar-size
+  height: $avatar-size
+
+.change-avatar-button
+  width: $icon-size
+  height: $icon-size
+  position: relative
+  top: calc(#{$avatar-size} - #{$icon-size})
+  left: calc(-#{$icon-size})
+  cursor: pointer
+
+.avatar-img-container
+  position: relative
+  display: flex
+  flex-flow: row nowrap
+  justify-content: center
+
+.avatar-info-container
+  display: flex
+  flex-flow: row nowrap
+  justify-content: center
+  margin: 2rem
+  &>span
+    margin: 5px
+  &>img
+    margin: 5px
