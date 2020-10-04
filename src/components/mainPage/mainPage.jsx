@@ -9,7 +9,7 @@ function MainPage() {
       <nav>
         <ul>
           <li>
-            <Link to="/" className='a-color'>Home</Link>
+            <Link to="/" className='a-color'>home</Link>
           </li>
           <li>
             <Link to="/posts" className='a-color'>posts</Link>

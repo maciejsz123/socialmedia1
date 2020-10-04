@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { fetchPosts } from '../../actions/postsActions';
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 function Post(props) {
   const { fetchPosts } = props;
@@ -73,8 +74,8 @@ function Post(props) {
       </div>
       <div className='col-8 col-xl-9 row'>
         <div className='row col-12'>
-          <div className='post-author col-5'>{`${props.post.userName} ${props.post.userSurname}`}</div>
-          <div className='post-date col-5'>{day} {monthDescription[month]} {year === actualYear ? '' : year}</div>
+          <div className='post-author col-6'><Link to={`/user/${props.post.userId}`}>{`${props.post.userName} ${props.post.userSurname}`}</Link></div>
+          <div className='post-date col-4'>{day} {monthDescription[month]} {year === actualYear ? '' : year}</div>
           <div className='post-delete col-2'>
           {
             props.post.userId !== props.actualUser._id ? '' : <img src={require('../../imgs/delete.png')} onClick={deletePost} alt='delete' className='icon'/>
@@ -82,13 +83,13 @@ function Post(props) {
           </div>
         </div>
         <div className='post-content col-12'>{props.post.text}</div>
-        <div className='post-likes col-12'>
+        <div className='post-likes col-12 d-flex align-items-end'>
           {
             didILiked ?
             <img src={require('../../imgs/liked.png')} className='icon' onClick={addLike} alt='like' /> :
             <img src={require('../../imgs/like.png')} className='icon' onClick={addLike} alt='like' />
           }
-          <span>{props.post.likes}</span>
+          <span className='pl-2'>{props.post.likes}</span>
         </div>
       </div>
     </div>

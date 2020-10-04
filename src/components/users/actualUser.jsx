@@ -50,6 +50,15 @@ function ActualUser(props) {
     })
   }
 
+  function deleteAvatar(e) {
+    e.preventDefault();
+
+    axios.delete(`/users/avatardelete/${props.actualUser._id}`)
+    .then( () => console.log('img deleted'))
+    .catch( (err) => {
+      console.log(err);
+    })
+  }
 
   if(Object.keys(props.actualUser).length === 0 && props.actualUser.constructor === Object) {
     return <div></div>
@@ -63,6 +72,7 @@ function ActualUser(props) {
           <div>
             <input type='file' id='avatar-change' onChange={onChange} name='avatar'/>
             <img onClick={sendFile} src={require('../../imgs/pen.png')} className='change-avatar-button' alt='change'/>
+            <img onClick={deleteAvatar} src={require('../../imgs/delete.png')} className='delete-avatar-button' alt='delete avatar' />
           </div>
         </div>
         <div className='avatar-info-container'>

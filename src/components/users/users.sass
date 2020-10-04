@@ -1,5 +1,5 @@
 $avatar-size: 150px
-$icon-size: 30px
+$icon-size: 25px
 
 #avatar-change
   display: none
@@ -24,9 +24,17 @@ $icon-size: 30px
 .change-avatar-button
   width: $icon-size
   height: $icon-size
-  position: relative
+  position: absolute
   top: calc(#{$avatar-size} - #{$icon-size})
-  left: calc(-#{$icon-size})
+  right: calc(#{$icon-size}/2)
+  cursor: pointer
+
+.delete-avatar-button
+  width: $icon-size
+  height: $icon-size
+  position: absolute
+  top: 0
+  right: calc(#{$icon-size}/2)
   cursor: pointer
 
 .avatar-img-container

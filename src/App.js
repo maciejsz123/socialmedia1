@@ -3,6 +3,7 @@ import Login from './components/login/login';
 import MainPage from './components/mainPage/mainPage';
 import Posts from './components/posts/posts';
 import Chat from './components/chat/chat';
+import User from './components/users/user';
 import { connect } from 'react-redux';
 import './App.sass';
 import {
@@ -28,6 +29,9 @@ function App(props) {
           </Route>
           <Route path='/chat'>
             <Chat />
+          </Route>
+          <Route path='/user/:id'>
+            <User />
           </Route>
         </Switch>
     </Router>

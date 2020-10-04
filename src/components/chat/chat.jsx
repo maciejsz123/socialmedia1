@@ -30,7 +30,7 @@ function Chat(props) {
   }
 
   return (
-    <div>
+    <div className='container'>
       <div>
         <h3>chat:</h3>
         <div>
