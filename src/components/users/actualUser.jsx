@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { setActualUser } from '../../actions/usersActions'
+import { Link } from "react-router-dom";
 import './users.sass'
 
 function ActualUser(props) {
@@ -76,7 +77,7 @@ function ActualUser(props) {
           </div>
         </div>
         <div className='avatar-info-container'>
-          <span>{props.actualUser.name} {props.actualUser.surname}</span>
+          <span><Link to={`/user/${props.actualUser._id}`}>{props.actualUser.name} {props.actualUser.surname}</Link></span>
           <img src={require('../../imgs/logout.png')} alt='logout' onClick={logout} className='logout' />
         </div>
       </div>

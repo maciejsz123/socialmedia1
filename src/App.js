@@ -4,6 +4,7 @@ import MainPage from './components/mainPage/mainPage';
 import Posts from './components/posts/posts';
 import Chat from './components/chat/chat';
 import User from './components/users/user';
+import Gallery from './components/gallery/gallery';
 import { connect } from 'react-redux';
 import './App.sass';
 import {
@@ -30,8 +31,11 @@ function App(props) {
           <Route path='/chat'>
             <Chat />
           </Route>
-          <Route path='/user/:id'>
+          <Route exact path='/user/:id'>
             <User />
+          </Route>
+          <Route path='/user/:id/gallery'>
+            <Gallery />
           </Route>
         </Switch>
     </Router>

@@ -20,11 +20,10 @@ function Posts(props) {
     e.preventDefault();
     axios.post('/posts/add', {
       userId: props.actualUser._id,
-      userName: props.actualUser.name,
-      userSurname: props.actualUser.surname,
       text: text,
       likes: 0,
-      likesArray: []
+      likesArray: [],
+      comments: []
     })
     .then( () => {
       setText('')

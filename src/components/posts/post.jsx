@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
 function Post(props) {
-  const { fetchPosts } = props;
+  const { fetchPosts, post } = props;
+
   const monthDescription = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const date = new Date(props.post.createdAt);
   const year = date.getFullYear();
@@ -13,11 +14,14 @@ function Post(props) {
   const day = date.getDate();
   const actualYear = new Date().getFullYear();
   const didILiked = props.post.likesArray.find( id => id === props.actualUser._id);
+  let name, surname = '';
 
   let avatar = null;
   try {
     const avatarimg = props.users.find( user => user._id === props.post.userId).avatar;
     avatar = require(`../../uploads/${avatarimg}`);
+    name = props.users.find( user => user._id === post.userId).name;
+    surname = props.users.find( user => user._id === post.userId).surname;
   } catch(err) {
     console.log('loading file');
   }
@@ -39,8 +43,6 @@ function Post(props) {
         if(didILiked) {
           axios.post(`/posts/update/${props.post._id}`, {
             userId: resp.data.userId,
-            userName: resp.data.userName,
-            userSurname: resp.data.userSurname,
             text: resp.data.text,
             likes: resp.data.likes - 1,
             likesArray: resp.data.likesArray.filter( v => v !== props.actualUser._id)
@@ -51,8 +53,6 @@ function Post(props) {
         } else {
           axios.post(`/posts/update/${props.post._id}`, {
             userId: resp.data.userId,
-            userName: resp.data.userName,
-            userSurname: resp.data.userSurname,
             text: resp.data.text,
             likes: resp.data.likes + 1,
             likesArray: [...resp.data.likesArray, props.actualUser._id]
@@ -74,7 +74,7 @@ function Post(props) {
       </div>
       <div className='col-8 col-xl-9 row'>
         <div className='row col-12'>
-          <div className='post-author col-6'><Link to={`/user/${props.post.userId}`}>{`${props.post.userName} ${props.post.userSurname}`}</Link></div>
+          <div className='post-author col-6'><Link to={`/user/${props.post.userId}`}>{`${name} ${surname}`}</Link></div>
           <div className='post-date col-4'>{day} {monthDescription[month]} {year === actualYear ? '' : year}</div>
           <div className='post-delete col-2'>
           {

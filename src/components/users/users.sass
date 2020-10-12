@@ -1,6 +1,7 @@
 $avatar-size: 150px
 $icon-size: 25px
 
+//////////////// actualUser
 #avatar-change
   display: none
 
@@ -52,3 +53,74 @@ $icon-size: 25px
     margin: 5px
   &>img
     margin: 5px
+
+////////////////////// users
+.background-img-container
+  width: 100%
+  height: 250px
+  position: relative
+
+.background-img
+  width: 100%
+  height: 100%
+
+.black-background
+  width: inherit
+  height: inherit
+  background-color: black
+
+.avatar-position
+  background: black
+  position: absolute
+  top: calc(#{$avatar-size} - 20px)
+  left: 50%
+  transform: translate(-50%)
+
+.user-name
+  width: 100%
+  text-align: center
+  margin: 30px 0
+
+
+///////////////////// editDetails
+.display-none
+  display: none
+
+.details-modal
+  display: block
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  z-index: 1
+  background-color: grey
+  opacity: 0.7
+
+.details-modal-closed
+  display: none
+
+.content-div
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 2
+  left: 50%
+  transform: translate(-50%, -50%)
+  top: 50%
+  height: 400px
+  width: 100%
+
+.details-modal-content
+  z-index: 1000
+  background: white
+  border-radius: 10px
+  position: absolute
+  width: 100%
+  height: 100%
+  font-size: 12px
+
+@media only screen and (min-width: '860px')
+  .content-div
+    width: 70%
+    font-size: 16px
