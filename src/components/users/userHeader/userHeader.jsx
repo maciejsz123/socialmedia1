@@ -1,19 +1,30 @@
 import React from 'react';
 
 function UserHeader(props) {
+  if(!props.user) {
+    return <div>user not found</div>
+  }
   return(
     <React.Fragment>
-    <div className='background-img-container'>
-      <div className='background-img'>
-        {
-          (!props.user.backgroundImg || props.user.backgroundImg === 'none') ?
-          <div className='black-background'></div> :
-          <img src={require(`../../../uploads/${props.user.backgroundImg}`)} className='background-img' alt='backgroundImg'/>
-        }
+      <div className='background-img-container'>
+        <div className='background-img'>
+          {
+            (!props.user.backgroundImg || props.user.backgroundImg === 'none') ?
+            <div className='black-background'></div> :
+            <img src={require(`../../../uploads/${props.user.backgroundImg}`)}
+              className='background-img'
+              alt='backgroundImg'
+            />
+          }
+        </div>
+        <img src={require(`../../../uploads/${props.user.avatar}`)}
+          className='avatar-img avatar-position'
+          alt='avatar'
+        />
       </div>
-      <img src={require(`../../../uploads/${props.user.avatar}`)} className='avatar-img avatar-position' alt='avatar'/>
-    </div>
-    <div className='user-name'><h2>{props.user.name} {props.user.surname}</h2></div>
+      <div className='user-name'>
+        <h2>{props.user.name} {props.user.surname}</h2>
+      </div>
     </ React.Fragment>
   )
 }

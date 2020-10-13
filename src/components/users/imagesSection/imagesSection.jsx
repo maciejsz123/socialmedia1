@@ -16,8 +16,8 @@ function ImagesSection(props) {
     ));
 
   return(
-    <div>
-      <Link to={`/user/${props.user._id}/gallery`}>show all images</Link>
+    <div className='text-center img-section-container'>
+      <Link to={`/user/${props.user._id}/gallery`} className='color-white'>show all images</Link>
       <div className='img-section'>
         {images}
       </div>

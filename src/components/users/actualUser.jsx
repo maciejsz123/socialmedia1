@@ -8,10 +8,6 @@ import './users.sass'
 function ActualUser(props) {
   const { setActualUser, actualUser } = props;
 
-  function logout() {
-    props.setActualUser({});
-  }
-
   useEffect( () => {
     axios.get(`/users/${props.actualUser._id}`)
     .then( res => {
@@ -78,7 +74,6 @@ function ActualUser(props) {
         </div>
         <div className='avatar-info-container'>
           <span><Link to={`/user/${props.actualUser._id}`}>{props.actualUser.name} {props.actualUser.surname}</Link></span>
-          <img src={require('../../imgs/logout.png')} alt='logout' onClick={logout} className='logout' />
         </div>
       </div>
     </div>

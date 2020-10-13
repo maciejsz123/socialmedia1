@@ -13,11 +13,11 @@ function User(props) {
   const [user, setUser] = useState(null);
 
   useEffect( () => {
-    const id = window.location.pathname.substring(6);
+    const id = props.history.location.pathname.split('/')[2];
     axios.get(`/users/${id}`)
     .then( (v) => setUser(v.data))
     .catch( err => console.log(err))
-  }, [users])
+  }, [users, props.history.location.pathname]);
 
   useEffect( () => {
     fetchPosts();
@@ -28,7 +28,7 @@ function User(props) {
     return <div className='container'>user doesn't exist</div>
   }
 
-  const posts = props.posts.filter( post => window.location.pathname.substring(6) === post.userId);
+  const posts = props.posts.filter( post => props.history.location.pathname.split('/')[2] === post.userId);
 
   return (
     <div className='container'>

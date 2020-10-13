@@ -83,9 +83,9 @@ function EditDetails(props) {
   }
 
   return (
-    <React.Fragment>
-      <p style={{alignSelf: 'center'}}>change user data</p>
-      <button type='button' onClick={toggleModal} className='btn btn-info'>change details</button>
+    <div className='section-container text-center'>
+      <p className='edit-text-p'>change user data</p>
+      <button type='button' onClick={toggleModal} className='btn btn-info w-100'>change details</button>
       <div>
         <input type='file' id='background-img' onChange={onImgChange} className='display-none'/>
         <button type='button' name='background-img' onClick={addImg} className='btn btn-info w-100'>change background image</button>
@@ -108,7 +108,7 @@ function EditDetails(props) {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
 

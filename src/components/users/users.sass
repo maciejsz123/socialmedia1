@@ -1,14 +1,13 @@
 $avatar-size: 150px
 $icon-size: 25px
+@import '../../App.sass'
 
 //////////////// actualUser
 #avatar-change
   display: none
 
 .actual-user
-  margin: 5px 0
-  background-color: white
-  border-radius: 10px
+  @include section-mixin
 
 .logout
   width: $icon-size
@@ -17,7 +16,7 @@ $icon-size: 25px
 
 .avatar-img
   border-radius: 50%
-  border: 1px solid #f0f2f5
+  border: 1px solid $section-color
   margin: 5px
   width: $avatar-size
   height: $avatar-size
@@ -51,6 +50,8 @@ $icon-size: 25px
   margin: 2rem
   &>span
     margin: 5px
+    &>a
+      color: $click-color
   &>img
     margin: 5px
 
@@ -86,6 +87,14 @@ $icon-size: 25px
 .display-none
   display: none
 
+.section-container
+  @include section-mixin
+  color: white
+
+.edit-text-p
+  color: $non-click-color
+  align-self: center
+
 .details-modal
   display: block
   position: fixed
@@ -120,7 +129,7 @@ $icon-size: 25px
   height: 100%
   font-size: 12px
 
-@media only screen and (min-width: '860px')
+@media only screen and (min-width: '768px')
   .content-div
     width: 70%
     font-size: 16px
